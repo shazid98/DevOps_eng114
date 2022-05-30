@@ -67,6 +67,10 @@
 - ip is 192.168.10.100 when using nginx
 
 
+![Vagrant Diagram](/images/vagrant_diagram.png)
+
+
+
 # Bash
 - `sudo` to run as admin
 - `sudo` `apt-get update`, checks internet request
