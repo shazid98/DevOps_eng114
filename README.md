@@ -13,6 +13,8 @@
 - Be able to understand the product built by other people; no need to understand how to build a product from scratch
 - The environment should work for everyone
 - Can be thought of as an extension of the agile method
+- Changes in small increments and in iterations
+- Continuous testing by developing automated [CI/CD pipelines](https://www.flagship.io/ci-cd/)
 
 
 ## Benefits:
@@ -30,6 +32,20 @@
 - Flexibility; can work on different things and understand most areas
 - Robustness; fast solid delivery without much compromise
 - Cost; it's cost effective
+
+## Role of DevOps engineer
+- The skills required are:
+    - Communication
+    - Experience with DevOps tools
+    - Project Management
+    - Optimizing release cycles
+    - Coding knowledge (mainly OOP)
+    - Infrastructure knowledge
+- Writing documentation for features form teh server side
+- Analysis of the current system and blueprinting/developing plans for enhancements and improvements (Mainly through automation)
+- Cloud deployment and management
+- CI/CD (continuous integration and deployment)
+- Continuous testingat different stages of teh development cycle
 
 # How to initialise vagrant
 
@@ -83,8 +99,8 @@
 - some numbers can be used as permissions
     - ![](path) - for images on vscode readme
 
-- chmod Absolute Mode
-    • Uses octal numbers. 
+## chmod Absolute Mode
+ Uses octal numbers. 
 - 4 = read 
 - 2 = write 
 - 1 = execute 
