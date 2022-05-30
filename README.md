@@ -1,41 +1,101 @@
-# What is DevOps
-## Why DevOps - Benefits
-### Role of DevOps
-
-Before DevOps:
+## Before DevOps:
 
 - There was a blame culture between the teams
-- Not smooth communications
+- Not smooth communication between Operations and Development
+
+![DevOps Diagram](images/devops_diagram.jpg)
 
 
-After DevOps:
+## What is DevOps:
 
-- Gap is bridged with a new team,
-- Getting rid of the blame culture, by checking things
-- Be able to understand the product built by other people, No need to understand how to build a product from scratch
+- A specified team bridges the gap between operations and development
+- Checks and tests things constantly
+- Be able to understand the product built by other people; no need to understand how to build a product from scratch
 - The environment should work for everyone
+- Can be thought of as an extension of the agile method
 
 
-Benefits:
+## Benefits:
 
-- Ease of use, making an easy environment for everyone
-- Flexible, can work on different things and understand most areas
-- Robustness, fast delivery
-- Cost effective, can understand both departments
+- Everyone can use the same environment which reduces issues between teams
+- It gets rid of blame culture, due to the rigorous resting
+- People are more flexible so problems can be solved more easily
+- Consistent communication between members
+- The product theoretically gets better after each iteration
 
+
+
+## 4 PILLARS:
+- Ease of use; making an easy environment for everyone to use 
+- Flexibility; can work on different things and understand most areas
+- Robustness; fast solid delivery without much compromise
+- Cost; it's cost effective
 
 # How to initialise vagrant
 
 - Create a directory
-- Create a .gitignore (put .vagrant/ and .log files as ignored)
-- Create a README.md
-- vagrant init *NAME OF OS*
-- rm -rf Vagrantfile, and nano a new Vagrantfile with:  
-Vagrant.configure("2") do |config|
+- Create a `.gitignore` (put `.vagrant/` and `.log` files as ignored)
+- Create a `README.md`
+- `vagrant init` *NAME OF OS*
+- `rm -rf Vagrantfile`, and `nano` a new `Vagrantfile` with: 
 
-    config.vm.box = "ubuntu/xenial64"
+    Vagrant.configure("2") do |config|
 
-end
-- add, commit and push
-- vagrant up to get it running
-- vagrant ssh to access shell
+        config.vm.box = "ubuntu/xenial64"
+
+    end
+
+- `add`, `commit` and `push`
+- `vagrant up` to get it running
+- `vagrant ssh` to access shell
+- ip is 192.168.10.100 when using nginx
+
+
+# Bash
+- `sudo` to run as admin
+- `sudo` `apt-get update`, checks internet request
+- `apt-get upgrade` will updrage the version
+- `apt-get install` will install
+- `apt-get install` will install, this case `nginx`, `-y` will automatically say yes
+- check nginx status `systemctl status nginx` or `stop` or `start` or `restart` 
+- who am I `uname` or `uname -a`
+- where am I `pwd` 
+- hwo to create a folder in linux `mkdir dir-name`
+- how to check folder/file `ls` or `ls -a`
+- .folders are hidden
+- `cd` to change directory
+- come out/back of/from the current location `cd ..`
+- only `cd` will bring you to home directory
+- `touch` to create a file
+- `nano` will create file if it doesnt exist and lets you edit
+- `vim` does the same thing
+- `mv destination-path` to move files and folders
+- to copy it's `cp path_of_data path_of_destination`
+- 
+
+#### File Permissions
+- READ `r`
+- WRITE `w`
+- EXECUTE `x`
+- how to check file permission `ll`
+- change permission `chmod permission file-name`
+- `chmod +x provision.sh` appended
+- some numbers can be used as permissions
+    - ![](path) - for images on vscode readme
+
+- chmod Absolute Mode
+    • Uses octal numbers. 
+- 4 = read 
+- 2 = write 
+- 1 = execute 
+    - Add numbers of permissions you wish to grant. 
+- Sum of these is what you provide. 
+- Read, write, execute is 7 (4 + 2 + 1). 
+- Read, write is 6 (4 + 2). 
+    - Complete permissions are expressed as three-digit number. 
+- Each digit corresponds to a context (owner, group, other).
+    -  E.g. chmod 764 file1 (user = rwx, group = rw and others = read on file1)
+
+           chmod 700 file1 (user = rwx)
+
+           chmod 640 file1 (user = rw, group = r)
