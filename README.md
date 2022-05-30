@@ -1,6 +1,6 @@
-#What is DevOps
-##Why DevOps - Benefits
-###Role of DevOps
+# What is DevOps
+## Why DevOps - Benefits
+### Role of DevOps
 
 Before DevOps:
 
