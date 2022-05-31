@@ -133,5 +133,3 @@
 - start nginx
 - `enable nginx` (makes it start automatically | optional)
 - stopped then started
-=======
->>>>>>> f56381c82fea5552e7257e4beadc9c4115c9fd94
