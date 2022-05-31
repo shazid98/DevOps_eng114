@@ -154,6 +154,43 @@
     ### enable nginx
     sudo systemctl enable nginx
 
-- add this to Vagratfile: `config.vm.provision "file", source: "./provision.sh", destination: "$HOME/"`
-- add this to Vagrantfile: `config.vm.provision "shell", inline: "sudo chmod +x provision.sh && sudo ./provision.sh", run:"always"`
-- The lines above deploy the local file to the virtual machine, and the second line executes the file.
+- add this to Vagrantfile: `config.vm.provision "shell", path: "./provision.sh", run:"always"` (this executes local provisions file to the VM)
+
+- uploading folder to vm using `config.vm.synced_folder "./app", "/home/vagrant/app"`
+
+### Automated tasks
+#### update
+sudo apt-get update -y
+
+#### upgrade
+sudo apt-get upgrade -y
+
+#### install nginx
+sudo apt-get install nginx -y
+
+#### start nginx
+sudo systemctl start nginx
+
+#### enable nginx
+sudo systemctl enable nginx
+
+#### download python stuff
+sudo apt-get install python-software-properties
+
+#### download v6
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash
+
+#### install node-js
+sudo apt-get install nodejs
+
+#### install pm2
+sudo npm install pm2 -g
+
+#### redirect to app folder
+cd app/app/
+
+#### npm install and -d to detach
+npm install -d
+
+#### start npm
+npm start
