@@ -121,7 +121,7 @@
            chmod 700 file1 (user = rwx)
 
            chmod 640 file1 (user = rw, group = r)
-<<<<<<< HEAD
+
 
 ### Bash Scripting
 - create a file called provision.sh (it can be called anything)
@@ -132,4 +132,26 @@
 - checked status
 - start nginx
 - `enable nginx` (makes it start automatically | optional)
+
 - stopped then started
+- To run our script `sudo ./provision.sh`
+
+- create local provision.sh with the commands from before:
+    #!/bin/bash
+
+    ### update
+    sudo apt-get update -y
+
+    ### upgrade
+    sudo apt-get upgrade -y
+
+    ### install nginx
+    sudo apt-get install nginx -y
+
+    ### start nginx
+    sudo systemctl start nginx
+
+    ### enable nginx
+    sudo systemctl enable nginx
+
+- `config.vm.provision "shell", inline: "./provision.sh", run:"always"`

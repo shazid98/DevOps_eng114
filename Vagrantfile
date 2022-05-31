@@ -4,6 +4,8 @@ Vagrant.configure("2") do |config|
 
 	# add a private network between localhost & VM using ip
 
-	config.vm.network "private_network", ip: "192.168.10.100"	
+	config.vm.network "private_network", ip: "192.168.10.100"
+	config.vm.provision "file", source: "./provision.sh", destination: "$HOME/"
+	config.vm.provision "shell", inline: "sudo chmod +x provision.sh && sudo ./provision.sh", run:"always"
 
 end
