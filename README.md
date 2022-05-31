@@ -1,3 +1,5 @@
+# DevOps
+
 ## Before DevOps:
 
 - There was a blame culture between the teams
@@ -119,6 +121,7 @@
            chmod 700 file1 (user = rwx)
 
            chmod 640 file1 (user = rw, group = r)
+<<<<<<< HEAD
 
 ### Bash Scripting
 - create a file called provision.sh (it can be called anything)
@@ -130,3 +133,5 @@
 - start nginx
 - `enable nginx` (makes it start automatically | optional)
 - stopped then started
+=======
+>>>>>>> f56381c82fea5552e7257e4beadc9c4115c9fd94
