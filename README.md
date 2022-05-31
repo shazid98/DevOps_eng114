@@ -119,3 +119,14 @@
            chmod 700 file1 (user = rwx)
 
            chmod 640 file1 (user = rw, group = r)
+
+### Bash Scripting
+- create a file called provision.sh (it can be called anything)
+- change permission of this file `chmod +x provision.sh`
+- first line *MUST BE* starting with `#!/bin/bash` (called a shebang)
+- update and & upgrade
+- installed nginx
+- checked status
+- start nginx
+- `enable nginx` (makes it start automatically | optional)
+- stopped then started
