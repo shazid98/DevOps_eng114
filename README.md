@@ -154,4 +154,6 @@
     ### enable nginx
     sudo systemctl enable nginx
 
-- `config.vm.provision "shell", inline: "./provision.sh", run:"always"`
+- add this to Vagratfile: `config.vm.provision "file", source: "./provision.sh", destination: "$HOME/"`
+- add this to Vagrantfile: `config.vm.provision "shell", inline: "sudo chmod +x provision.sh && sudo ./provision.sh", run:"always"`
+- The lines above deploy the local file to the virtual machine, and the second line executes the file.
