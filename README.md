@@ -47,7 +47,7 @@
 - Analysis of the current system and blueprinting/developing plans for enhancements and improvements (Mainly through automation)
 - Cloud deployment and management
 - CI/CD (continuous integration and deployment)
-- Continuous testingat different stages of teh development cycle
+- Continuous testingat different stages of the development cycle
 
 # How to initialise vagrant
 
@@ -194,3 +194,33 @@
 
 #### start npm
 `npm start`
+
+
+### Creating Variables in Linux
+- `MY_NAME=Shazid`
+- `echo $MY_NAME` (will print the variable)
+- There are a lot of preallocated variables and they can be called with `env`
+- to create an environment variable:
+    `export`
+- E.g. `export MY_NAME` will add it to the environment variables
+- `printenv *NAME OF VARIABLE*`
+- sudo nano ~/.bashrc
+- export [VARIABLE_NAME]=[variable_value]
+- source ~/.bashrc
+- sudo nano /etc/profile.d/[filename].sh
+- unset [VARIABLE_NAME] to unset it
+- 
+
+### Reverse Proxy
+- `sudo nano /etc/nginx/sites-available/default`
+- location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+- `sudo nginx -t` to check for syntax errors
+- `sudo systemctl` restart nginx
