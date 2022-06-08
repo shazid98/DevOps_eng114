@@ -17,6 +17,7 @@ Displays a simple homepage displaying a Sparta logo and message. This page shoul
 ### Blog
 
 ``localhost:3000/posts``
+`192.168.10.100:3000`
 
 This page displays a logo and 100 randomly generated blog posts. The posts are generated during the seeding step.
 

@@ -223,4 +223,73 @@
     }
 }
 - `sudo nginx -t` to check for syntax errors
-- `sudo systemctl` restart nginx
+- `sudo systemctl restart nginx`
+- cd
+- `cd app/app npm start`
+
+
+# # copying file to the folder location
+# sudo cp app/default /etc/nginx/sites-available/default
+
+# # ensuring there are no mistakes
+# sudo nginx -t
+
+# # ensuring nginx works fine
+# sudo systemctl restart nginx
+# sudo systemctl enable nginx
+
+####
+- How to find
+- How to find out if processes are running:
+    - `top` or `ps aux`
+- How to kill a process `sudo kill process-id`
+- How to use piping | to sort out or short list process
+- How to use `head` and `tail`
+
+#### mongodb
+`sudo apt-get update -y`
+
+`sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927`
+
+`echo "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list`
+
+`sudo apt-get update -y`
+
+`sudo apt-get upgrade -y`
+
+##### sudo apt-get install mongodb-org=3.2.20 -y
+
+`sudo apt-get install -y mongodb-org=3.2.20 `
+
+`mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20`
+ 
+`mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20`
+
+##### if mongo is is set up correctly these will be successful
+`nano /etc/mongod.conf` - write ip as 0.0.0.0
+
+`sudo systemctl restart mongod`
+
+`sudo systemctl enable mongod`
+
+### What is Cloud Computing
+- No Physical servers
+- Can be accessed remotely
+- Does not occupy physical space 
+
+### Why would we use it
+- cost effective
+- fast
+- reliable with multiple Availability Zones
+
+![Monolith Diagram](/images/monolith.png)
+- cant be scaled as easily
+
+- AZs are Availability zones - the region is important, latency can be an issue
+- Multiple AZs so there are options in case of emergencies and failures
+- Traffic can be diverted to another AZ
+- Highly available and scalable
+- Users can be connected to the end-point
+
+AWS:
+- for tags eng114_shazid_nameofinstance
