@@ -302,3 +302,20 @@ AWS:
 - go into app folder, install npm and start
 - can also use `nohup node app.js > /dev/null 2>&1 &`
 - 
+
+### Mongodb
+
+In MongoDB
+- start anoMongoDBstance in the same way for the mongodb vm
+- use the provision script
+- change default file in /etc/nginx/sites-available/ to have 0.0.0.0
+- restart and enable mongod
+
+
+In app
+- `sudo echo "export DB_HOST=mongodb://IP/posts" >> ~/.bashrc`
+- `source ~/.bashrc`
+- `/app/app npm start`
+- can also use this for running in the background `nohup node app.js > /dev/null 2>&1 &`
+
+[2 Tier Architecture](/images/2_tier_architecture.png)
