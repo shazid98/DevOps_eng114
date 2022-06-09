@@ -296,7 +296,7 @@ AWS:
 
 
 #### How to copy folder onto cloud vm
-- scp -i eng114.pem -r C:/Users/SHAZID/Documents/DevOps_eng114/app ubuntu@ec2-34-245-200-102.eu-west-1.compute.amazonaws.com:/home/ubuntu/
+- scp -i eng114.pem -r C:/Users/SHAZID/Documents/DevOps_eng114/app user@awsdomain.com:/home/ubuntu/
 - do the same things as vagrant, start and install nginx
 - reverse proxy by going to root cd /, /etc/nginx/sites-available/default
 - go into app folder, install npm and start
