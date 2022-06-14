@@ -319,3 +319,86 @@ In app
 - can also use this for running in the background `nohup node app.js > /dev/null 2>&1 &`
 
 [2 Tier Architecture](/images/2_tier_architecture.png)
+
+
+### How to Monitor and use Cloud Management
+Monitoring & Alert Management
+
+When should we monitor? If we have instances running
+
+Who should be responsible? Developers and maintenance team
+
+Who should be notified in case of failure? Maintenance team
+
+What should be the next steps? IF the demand is too high, it can be autoscaled
+
+Why should we Monitor? Fix live issues, and prevent long downtimes
+
+What aspects should we monitor?
+
+- error logs
+- budgeting
+- uptime - access time - response time - latency
+- security breaches
+- system test/health
+- instance’s health
+- CPU utilisation %
+- There are 4 Golden Signals -
+
+- need to have something to monitor
+- see if there are any points of failure
+- see if something is active or not
+- monitor the health of the product (EC2 instance is running)
+- Monitor if status code is not 200
+- let us know what is wrong, trigger an alert message
+- alert the on call staff
+
+Monitoring and Alert Management Services:
+
+- Cloudwatch to monitor AWS service - SNS simple notification service
+- SQS simple queue service -
+
+[AWS Diagram](/images/aws_diagram.png)
+
+How to create alarms and notifications through SNS
+
+- create topic
+- create subscription
+- confirm email
+- go to instance and monitor
+- select right topic and configuration
+
+[Cloudwatch](/images/cloudwatch.png)
+
+[Autoscaling](/images/autoscaling.png)
+
+- scaled out as needed
+- whoever is responsible for adjusting the load balancer decides the minimum, maximum and desired size
+- Creating a template will save time
+
+How to do it step by step:
+
+- Need to create a launch template
+- Select a type of LB (Load Balancer) - ALB Application Load Balancer: target group/listener group HTTP
+- ALB = attach dependencies
+- Auto-scaling group - attack this to ALB
+
+DNS ADDRESS OF AUTOSCALING GROUP
+
+USER DATA:
+
+sudo apt-get update -y
+
+sudo apt-get upgrade -y
+
+sudo apt-get install nginx
+
+sudo systemctl restart nginx
+
+HOW TO SET UP ALERTS FOR the CPU usage
+
+- cloudwatch
+- all alarms
+- create alarm
+- EC2 and CPU metric
+- use topic or create one
