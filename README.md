@@ -432,11 +432,12 @@ You can create, access, and manage your VPCs using any of the following interfac
  inside a network. Subnets make networks more efficient. Through subnetting, network traffic can travel a shorter distance without passing through unnecessary [routers](https://www.cloudflare.com/learning/network-layer/what-is-routing/)
  to reach its destination.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5fb3153-e827-4ed1-a92d-a10fa3553b1f/Untitled.png)
 
 ## What is a CIDR block - how to create one
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ac276a3c-c4cd-4e02-a1fa-1785a7342086/Untitled.png)
+[Create an IPv4-enabled VPC and subnets using the AWS CLI](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html)
+
+Helpful to write a lot of addresses, CIDR works with binary notation
 
 # **CIDR Blocks**
 
@@ -471,4 +472,3 @@ The following are the parts of a network ACL rule:
 - **Destination**. [Outbound rules only] The destination for the traffic (CIDR range).
 - **Allow/Deny**. Whether to *allow* or *deny* the specified traffic.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c6755b86-26c2-453d-8e4b-24adc553cb81/Untitled.png)
