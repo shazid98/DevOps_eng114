@@ -432,12 +432,15 @@ You can create, access, and manage your VPCs using any of the following interfac
  inside a network. Subnets make networks more efficient. Through subnetting, network traffic can travel a shorter distance without passing through unnecessary [routers](https://www.cloudflare.com/learning/network-layer/what-is-routing/)
  to reach its destination.
 
+[Subnet Diagram](/images/subnet_diagram.png)
 
 ## What is a CIDR block - how to create one
 
 [Create an IPv4-enabled VPC and subnets using the AWS CLI](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-subnets-commands-example.html)
 
 Helpful to write a lot of addresses, CIDR works with binary notation
+
+Provides unique addresses
 
 # **CIDR Blocks**
 
