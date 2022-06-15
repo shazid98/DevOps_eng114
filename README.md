@@ -475,3 +475,18 @@ The following are the parts of a network ACL rule:
 - **Destination**. [Outbound rules only] The destination for the traffic (CIDR range).
 - **Allow/Deny**. Whether to *allow* or *deny* the specified traffic.
 
+### Steps
+
+[VPC DIAGRAM](/images/vpc_diagram.png)
+
+- Create a VPC in Ireland eu-west-1
+[CREATING A VPC](/images/create_VPC.png)
+- Create Internet Gateway (attach to the VPC)
+    - Attach the internet gateway with own VPC
+- Create a subnet/s - associate subnet with own VPC
+[CREATING A SUBNET](/images/create_subnet.png)
+- Create a route table
+    - Edit route table to add rules to connect to IG (Internet Gateway)
+    - associate subnet to VPC
+    
+[CREATING A ROUTE TABLE](/images/edit_routes.png)
