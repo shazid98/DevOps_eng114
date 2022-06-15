@@ -488,5 +488,9 @@ The following are the parts of a network ACL rule:
 - Create a route table
     - Edit route table to add rules to connect to IG (Internet Gateway)
     - associate subnet to VPC
-    
+
 [CREATING A ROUTE TABLE](/images/edit_routes.png)
+
+
+### VPC DIAGRAM FOR MONGODB AND APP INSTANCES
+[VPC DIAGRAM](/images/Vpc_diagram_sn.png)
