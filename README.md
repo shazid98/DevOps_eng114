@@ -402,3 +402,73 @@ HOW TO SET UP ALERTS FOR the CPU usage
 - create alarm
 - EC2 and CPU metric
 - use topic or create one
+
+
+## What is a VPC
+
+[AWS Network](/images/aws_network_diagram.png)
+
+- Virtual Private Cloud
+- Enables to launch AWS resources into a virtual network that has been defined by the user
+- Similar to traditional networks used for own data centres but its also scalable
+- On demand shared pool of resources allocated within a public cloud environment
+- Isolation between VPC users is achieved through the allocation of private IP subnets and a virtual communication
+
+You can create, access, and manage your VPCs using any of the following interfaces:
+
+- **AWS Management Console** — Provides a web interface that you can use to access your VPCs.
+- **AWS Command Line Interface (AWS CLI)** — Provides commands for a broad set of AWS services, including Amazon VPC, and is supported on Windows, Mac, and Linux. For more information, see [AWS Command Line Interface](https://aws.amazon.com/cli/).
+- **AWS SDKs** — Provides language-specific APIs and takes care of many of the connection details, such as calculating signatures, handling request retries, and error handling. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).
+- **Query API** — Provides low-level API actions that you call using HTTPS requests. Using the Query API is the most direct way to access Amazon VPC, but it requires that your application handle low-level details such as generating the hash to sign the request, and error handling. For more information, see [Amazon VPC actions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html) in the *Amazon EC2 API Reference*.
+
+## What is an internet gateway
+
+- An Internet gateway is a network "node" that connects two different networks that use different protocols (rules) for communicating. In the most basic terms, an Internet gateway is where data stops on its way to or from other networks. Thanks to gateways, we can communicate and send data back and forth with each other.
+- An internet gateway **enables resources (like EC2 instances) in your public subnets to connect to the internet if the resource has a public IPv4 address or an IPv6 address**
+
+## What is a subnet
+
+- A subnet, or subnetwork, is a [network](https://www.cloudflare.com/learning/network-layer/what-is-the-network-layer/)
+ inside a network. Subnets make networks more efficient. Through subnetting, network traffic can travel a shorter distance without passing through unnecessary [routers](https://www.cloudflare.com/learning/network-layer/what-is-routing/)
+ to reach its destination.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5fb3153-e827-4ed1-a92d-a10fa3553b1f/Untitled.png)
+
+## What is a CIDR block - how to create one
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ac276a3c-c4cd-4e02-a1fa-1785a7342086/Untitled.png)
+
+# **CIDR Blocks**
+
+The ability to group blocks of addresses into a single routing network is the hallmark of CIDR, and the prefix standard used for interpreting IP addresses makes this possible. CIDR blocks share the first part of the bit sequence that comprises the binary representation of the IP address, and blocks are identified using the same decimal-dot CIDR notation system that is used for IPv4 addresses. For example, 10.10.1.16/32 is an address prefix with 32 bits, which is the highest number of bits allowed in IPv4. Addresses with identical prefixes and the same number of bits always belong to the same block. In addition, larger blocks can be easily distinguished from smaller blocks by the length of the prefix. Short prefixes allow for more addresses while large prefixes identify small blocks.
+
+CIDR notation is also used for the newer IPv6 standard, and the syntax is the same. The only difference is that IPv6 addresses may contain up to 128 bits instead of the 32-bit maximum of IPv4. Even though IPv6 addresses may be up to 128 bits in length, it is important to note that subnets on MAC layer networks always use 64-bit host identifiers.
+
+## What is an NACLs - use case of NACL
+
+A *network access control list (ACL)*
+ is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. You might set up network ACLs with rules similar to your security groups in order to add an additional layer of security to your VPC
+
+## **Network ACL basics**
+
+The following are the basic things that you need to know about network ACLs:
+
+- Your VPC automatically comes with a modifiable default network ACL. By default, it allows all inbound and outbound IPv4 traffic and, if applicable, IPv6 traffic.
+- You can create a custom network ACL and associate it with a subnet. By default, each custom network ACL denies all inbound and outbound traffic until you add rules.
+- Each subnet in your VPC must be associated with a network ACL. If you don't explicitly associate a subnet with a network ACL, the subnet is automatically associated with the default network ACL.
+- You can associate a network ACL with multiple subnets. However, a subnet can be associated with only one network ACL at a time. When you associate a network ACL with a subnet, the previous association is removed.
+- A network ACL contains a numbered list of rules. We evaluate the rules in order, starting with the lowest numbered rule, to determine whether traffic is allowed in or out of any subnet associated with the network ACL. The highest number that you can use for a rule is 32766. We recommend that you start by creating rules in increments (for example, increments of 10 or 100) so that you can insert new rules where you need to later on.
+- A network ACL has separate inbound and outbound rules, and each rule can either allow or deny traffic.
+- Network ACLs are stateless, which means that responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa)
+
+The following are the parts of a network ACL rule:
+
+- **Rule number**. Rules are evaluated starting with the lowest numbered rule. As soon as a rule matches traffic, it's applied regardless of any higher-numbered rule that might contradict it.
+- **Type**. The type of traffic; for example, SSH. You can also specify all traffic or a custom range.
+- **Protocol**. You can specify any protocol that has a standard protocol number. For more information, see [Protocol Numbers](http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). If you specify ICMP as the protocol, you can specify any or all of the ICMP types and codes.
+- **Port range**. The listening port or port range for the traffic. For example, 80 for HTTP traffic.
+- **Source**. [Inbound rules only] The source of the traffic (CIDR range).
+- **Destination**. [Outbound rules only] The destination for the traffic (CIDR range).
+- **Allow/Deny**. Whether to *allow* or *deny* the specified traffic.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c6755b86-26c2-453d-8e4b-24adc553cb81/Untitled.png)
