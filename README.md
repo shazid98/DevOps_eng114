@@ -477,20 +477,20 @@ The following are the parts of a network ACL rule:
 
 ### Steps
 
-[VPC DIAGRAM](/images/vpc_diagram.png)
+![VPC DIAGRAM](/images/vpc_diagram.png)
 
 - Create a VPC in Ireland eu-west-1
-[CREATING A VPC](/images/create_VPC.png)
+![CREATING A VPC](/images/create_VPC.png)
 - Create Internet Gateway (attach to the VPC)
     - Attach the internet gateway with own VPC
 - Create a subnet/s - associate subnet with own VPC
-[CREATING A SUBNET](/images/create_subnet.png)
+![CREATING A SUBNET](/images/create_subnet.png)
 - Create a route table
     - Edit route table to add rules to connect to IG (Internet Gateway)
     - associate subnet to VPC
 
-[CREATING A ROUTE TABLE](/images/edit_routes.png)
+![CREATING A ROUTE TABLE](/images/edit_routes.png)
 
 
 ### VPC DIAGRAM FOR MONGODB AND APP INSTANCES
-[VPC DIAGRAM](/images/Vpc_diagram_sn.png)
+![VPC DIAGRAM](/images/Vpc_diagram_sn.png)
