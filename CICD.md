@@ -2,10 +2,13 @@
 
 ![Diagram CICD](/images/cicd_diagram_jenkins.png)
 
-### CD
+### CI - Continuous Integration
+- Automated process of building and testing so it can be processed into the next stage quickly
+
+### CD - Continuos Delivery
 - In continuous delivery the deployment is manual
 
-### CDE
+### CDE - Continuous Deployment
 - With CDE, the code is compiled, tested and dropped into the staging environment.
 
 
@@ -43,3 +46,21 @@
 Java based program with packages for windows, macos and linux. Works on most OS
 - A lot of Plugins are avilable
 - Huge community contributes plugin resource
+
+
+### When should we use CICD
+- Before anything conduct a cost beenfit analsysis:
+    - Is the task repetitive? If so invest in automation
+
+
+### Github SSH
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+
+
+### Jenkins
+Plan:
+- Need to generate ssh key pair on [localhost](http://localhost) in .ssh folder
+- Copy the 114 [114.pub](http://114.pub) key to our Github
+- test ssh connection
+
+![](/images/jenkins_diagram.png)
