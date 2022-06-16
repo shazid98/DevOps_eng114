@@ -1,5 +1,7 @@
 # CICD
 
+![Diagram CICD](/images/cicd_diagram_jenkins.png)
+
 ### CD
 - In continuous delivery the deployment is manual
 
