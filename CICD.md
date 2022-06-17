@@ -86,11 +86,10 @@ So we want to create a dev branch and work from there
     - Add branch
     - Branch to push: refs/heads/main
     - Target remote name: origin
-    - Then once you set this up, test it by:
 
 Go to your new branch
 - Add a random file in that branch
-- Add it, commit it and push it.
+- Add it, commit and push 
 - Then go to Jenkins and watch it finish
 - You can go to console output to see if everything looks good
 - Go to Github and select your main branch and see if the file is there
