@@ -64,3 +64,33 @@ Plan:
 - test ssh connection
 
 ![](/images/jenkins_diagram.png)
+
+### How to set up webhook
+- Add the url so it should look like this `http://jenkins-ip:8080/github-webhook/
+- Go onto Jenkins
+    - Select your project
+    - Select configure
+    - Scroll down to Build Triggers
+    - Select Github hook trigger for GITScm polling
+- Now your webhook is fully configured
+
+### Merging Github with automation
+So we want to create a dev branch and work from there
+
+- Jenkins
+    - Go to Configure
+    - Scroll down to Source Code Management
+    - On branches to build, you want it to listen to your dev branch so change main to dev
+    - Scroll down to Add post-build action, and add Git publisher
+    - Tick Push Only If Build Succeeds and Merge Results
+    - Add branch
+    - Branch to push: refs/heads/main
+    - Target remote name: origin
+    - Then once you set this up, test it by:
+
+Go to your new branch
+- Add a random file in that branch
+- Add it, commit it and push it.
+- Then go to Jenkins and watch it finish
+- You can go to console output to see if everything looks good
+- Go to Github and select your main branch and see if the file is there
