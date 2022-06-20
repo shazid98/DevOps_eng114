@@ -1,5 +1,5 @@
 # DevOps
-Plz work
+Please work
 ## Before DevOps:
 
 - There was a blame culture between the teams
