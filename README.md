@@ -1,5 +1,5 @@
 # DevOps
-dqwa work
+dwqeddqwa work
 ## Before DevOps:
 
 - There was a blame culture between the teams
