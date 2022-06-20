@@ -41,6 +41,10 @@ sudo npm install pm2 -g
 sudo systemctl restart nginx
 sudo systemctl enable nginx
 
+cd sre_jenkins_cicd/app
+
+sudo apt-get install npm -y
+npm start
 
 
 # Adding env variable
