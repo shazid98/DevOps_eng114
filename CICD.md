@@ -93,3 +93,22 @@ Go to your new branch
 - Then go to Jenkins and watch it finish
 - You can go to console output to see if everything looks good
 - Go to Github and select your main branch and see if the file is there
+
+
+### How to integrate CD
+- Make a separate job for it
+- Connect it to github
+- Enable the connection with EC2, security group
+- Make sure it runs after the CI runs first
+
+![](/images/ss1.png)
+
+![](/images/ss2.png)
+
+![](/images/ss3.png)
+
+![](/images/ss4.png)
+
+![](/images/ss5.png)
+
+![](/images/ss6/png)
