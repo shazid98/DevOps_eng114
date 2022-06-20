@@ -30,7 +30,7 @@ sudo apt install python-software-properties -y
 
 
 # install pm2
-sudo npm install pm2 -g
+npm install pm2 -g
 
 
 
