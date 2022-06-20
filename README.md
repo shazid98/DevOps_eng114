@@ -1,5 +1,5 @@
 # DevOps
-Heya, Is it really working?
+Hello, Is it really working?
 ## Before DevOps:
 
 - There was a blame culture between the teams
