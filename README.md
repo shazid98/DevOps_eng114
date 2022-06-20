@@ -1,5 +1,5 @@
 # DevOps
-yolo again
+yoloo again
 ## Before DevOps:
 
 - There was a blame culture between the teams
