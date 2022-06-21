@@ -1,5 +1,5 @@
 # DevOps
-Hello
+Heya
 ## Before DevOps:
 
 - There was a blame culture between the teams
