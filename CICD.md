@@ -112,3 +112,39 @@ Go to your new branch
 ![](/images/ss5.png)
 
 ![](/images/ss6/png)
+
+### How to create Jenkins server
+Objectives:
+- Create an EC2 instance
+- SSH into EC2 instance
+- Install and create Jenkins server
+- Set up Jenkins on the browser
+- Install plugins
+
+Create EC2 instance on AWS
+`ssh` in
+Install Java
+
+`sudo apt update`
+
+`sudo apt install openjdk-8-jdk`
+
+`wget -q -O - [https://pkg.jenkins.io/debian/jenkins.io.key](https://pkg.jenkins.io/debian/jenkins.io.key) | sudo apt-key add -`
+
+`sudo sh -c 'echo deb [http://pkg.jenkins.io/debian-stable](http://pkg.jenkins.io/debian-stable) binary/ > /etc/apt/sources.list.d/jenkins.list'`
+
+`sudo apt update`
+
+`sudo apt install jenkins`
+
+`systemctl status jenkins`
+
+Changing security groups and adding port 8080 - 0.0.0.0/0
+
+`sudo cat /var/lib/jenkins/secrets/initialAdminPassword` (to find password)
+
+### Jenkins in browser
+- Access using Jenkins EC2 IP ip:8080
+- Install suggested plugins
+- Create Admin User details
+- Install other plugins such as npm, nodejs (changing to version 13.3 in global config), ssh agent
