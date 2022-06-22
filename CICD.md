@@ -148,3 +148,125 @@ Changing security groups and adding port 8080 - 0.0.0.0/0
 - Install suggested plugins
 - Create Admin User details
 - Install other plugins such as npm, nodejs (changing to version 13.3 in global config), ssh agent
+
+
+### IaC
+Infrastructure as Code (IaC) is the managing and provisioning of infrastructure through code instead of through manual processes. 
+
+Automates the process of building infrastructure.
+
+With IaC, configuration files are created that contain your infrastructure specifications, which makes it easier to edit and distribute configurations. It also ensures that you provision the same environment every time. By codifying and documenting your configuration specifications, IaC aids configuration management and helps you to avoid undocumented, ad-hoc configuration changes.
+
+#### Benefits of IaC
+- Cost reduction
+- Increase in speed of deployments
+- Reduce errors 
+- Improve infrastructure consistency
+- Eliminate configuration drift
+
+#### Tools
+These are a few popular choices:
+- Chef
+- Puppet
+- Red Hat Ansible Automation Platform
+- Saltstack
+- Terraform 
+- AWS CloudFormation
+
+IaC is an important part of implementing DevOps practices and continuous integration/continuous delivery (CI/CD). IaC takes away the majority of provisioning work from developers, who can execute a script to have their infrastructure ready to go.  
+
+#### Configuration management
+Configuration management is a systems engineering process for establishing and maintaining consistency of a product's performance, functional, and physical attributes with its requirements, design, and operational information throughout its life
+
+Configuration management is a process for maintaining computer systems, servers, and software in a desired, consistent state. It’s a way to make sure that a system performs as it’s expected to as changes are made over time.
+
+- Classify and manage systems by groups and subgroups. 
+- Centrally modify base configurations.
+- Roll out new settings to all applicable systems. 
+- Automate system identification, patches, and updates
+- Identify outdated, poor performing, and noncompliant configurations. 
+- Prioritize actions. 
+- Access and apply prescriptive remediation
+
+#### Orchestration
+- Automated workflows
+- Automates repetitive tasks, like cloud servers
+
+#### Ansible
+- Ansible is an open-source software provisioning, configuration management, and application-deployment tool enabling infrastructure as code.
+- just need to use playbooks, 
+- agentless, no ansible agent needed, can be opened using ssh, highly flexible
+- ansible is simple and works with various operating systems
+- Automation platform, to automate tasks
+
+#### IaC-Ansible-Terraform
+Ansible can be used to automate the process of configuring terraform
+Terraform can be used to automate
+
+#### Benefits of the business
+- configuration management can solve issues locally instead of replacing the system entirely
+
+
+#### VMS
+controller: IP = 192.168.33.12 
+web: IP = 192.168.33.10
+db: IP =192.168.33.11
+
+![](/images/ansible_diagram.png)
+
+Agentless means there is no need for an installation in other locations, just need it in controller
+
+How to build vagrant:
+
+- vagrant up
+- ssh in into each machine `vagrant ssh machinename`
+- PW is vagrant, does not show when typing
+- run `sudo apt-get update -y`  in each machine
+- run `sudo apt-get upgrade -y` in each machine
+
+Once vagrant is up
+
+- ssh into controller machine
+- `ssh vagrant@ip-of-machine` to access and ssh into other machines from controller 9or any vm, but controller in this case)
+- exit to exit into previous machine
+- `sudo apt-get install software-properties-common`
+- `sudo apt-add-repository ppa:ansible/ansible`
+- check python version `python --version`
+- install ansible `sudo apt-get install ansible -y`
+- `ansible --version` to check if it has been installed properly
+    ![](/images/ansible_version.png)
+    ansible folder structure
+
+/etc/ansible
+
+hosts/inventory & ansible.config
+
+we need to let ansible know where we’re hosting
+
+![](/images/ansible_folder.png)
+
+
+- Hosts file will have hosts
+- cd into ansible folder `cd /etc/ansible/`
+- `ping [www.website.com](http://www.website.com)` to check ping
+- write the ips you want to connect to in the hosts file
+- `sudo nano hosts`
+- add ip (under step 2)
+- use `[nameofgroup]` for list of ips (groups)
+- in our case `[web]`
+    ![](/images/ansible_hosts.png)
+
+`[web]`
+`192.168.33.10 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant` 
+`ansible web -m ping`
+![](/images/ansible_ping.png)
+
+- do the same for db and add it to the hosts
+    - `[db]`
+    `192.168.33.11 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant`
+    - `ansible db -m ping`
+
+
+
+
+
