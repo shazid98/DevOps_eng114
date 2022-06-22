@@ -266,7 +266,49 @@ we need to let ansible know where we’re hosting
     `192.168.33.11 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant`
     - `ansible db -m ping`
 
+## Ansible ad-hoc commands
+Will try to run commands for another machine from controller using ansible
+Run from folder where the host file is
+![](/images/ansible_commands_to_remote.png)
 
+`ansible nameofmachine -a "commandinothermachine"`
+![](/images/ansible_cheatsheet.png)
 
+Transferring files:
+`ansible web -m copy -a "src=/etc/ansible/testing-connection.txt dest=~/"`
 
+Why should we learn YAML:
+
+- used with Ansible, Docker, Compose, Kubernetes, Cloud Formation
+- YAML to create PLAYBOOKS
+    - **PLAYBOOKS** are automation scripts for config management file.yml or yaml
+- Every yaml file starts with `---`
+- `sudo apt install tree` to install tree, looks nicer for folder structures
+
+Create playbook:
+
+`sudo nano nginx-playbook.yml` 
+
+In YAML the `-` acts as a bracket
+
+nginx-playbook.yml
+![](/images/nginx-playbook.png)
+
+To run the playbook - `ansible-playbook nginx-playbook.yml`
+`ansible-playbook nginx-playbook.yml --syntax-check` to check
+
+node-playbook.yml
+![](/images/node-playbook.png)
+
+reverse-proxy-playbook.yml
+![](/images/reverse-proxy-playbook.png)
+
+npm-playbook.yml
+![](/images/npm-playbook.png)
+
+to start the app:
+- `ssh` into web
+- `cd  DevOps_eng114/sre_jenkins_cicd/app` into the app folder
+- `npm install`
+- `npm start`
 
