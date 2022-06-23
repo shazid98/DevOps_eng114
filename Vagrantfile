@@ -17,6 +17,15 @@
        
        controller.vm.network :private_network, ip: "192.168.33.12"
        
+       controller.vm.provision "file", source: "controller_provision.sh", destination: "$HOME/"
+
+       #gives the provison.sh file ablity to execute
+       controller.vm.provision "shell", inline: "sudo chmod +x controller_provision.sh"
+ 
+       #Runs the file
+       controller.vm.provision "shell", inline: "sudo ./controller_provision.sh"
+
+       
        # config.hostsupdater.aliases = ["development.controller"] 
        
       end 
