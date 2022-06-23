@@ -1,0 +1,9 @@
+---
+
+- hosts: web
+  gather_facts: yes
+  become: true
+
+  tasks:
+  - name: Install Nginx Web server
+    apt: pkg=nginx state=present

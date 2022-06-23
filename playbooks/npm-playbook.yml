@@ -1,0 +1,8 @@
+---
+- hosts: web
+  gather_facts: yes
+  become: true
+
+  tasks:
+  - name: Install npm
+    apt: pkg=npm state=present

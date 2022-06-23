@@ -1,0 +1,14 @@
+---
+
+- hosts: web
+  gather_facts: yes
+  become: true
+
+  tasks:
+    - name: Copying the default file
+      copy:
+        src: ~/DevOps_eng114/default
+        dest: /etc/nginx/sites-available/default
+
+    - name: restart nginx
+      service: name=nginx state=restarted enabled=yes

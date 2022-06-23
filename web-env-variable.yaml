@@ -1,0 +1,9 @@
+- hosts: web
+  gather_facts: yes
+  become: true
+  tasks:
+  - name: Add a mongo variable
+    lineinfile:
+      dest: "~/.bashrc"
+      regex: "^ENV_VAR= "
+      line: "DB_HOST=mongodb://192.168.33.11:27017/posts"

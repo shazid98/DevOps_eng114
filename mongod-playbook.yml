@@ -35,19 +35,14 @@
   become: true
 
   tasks:
-  - name: Add key for Mongodb
-    sudo: yes
-    apt_key: >
-      keyserver=hkp://keyserver.ubuntu.com:80
-      id=D68FA50FEA312927
-      state=present
-  - name: Add mongo sources list
-    sudo: yes
-    lineinfile: > 
-      line="deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse"
-      dest=/etc/apt/sources.list.d/mongod.list
-      state=present
-      create=yes
-  - name: Install mongo
-    sudo: yes
-    apt: name=mongodb-org state=latest update_cache=yes
+  - name: Cloning GIT
+    git:
+      repo: https://github.com/shazid98/DevOps_eng114.git
+      dest: ~/repo/
+      clone: yes
+      update: yes
+  - name: Deleting and replacing mongod.conf
+    copy:
+      src: ~/repo/DevOps_eng114/mongodb.conf
+      dest: /etc/mongodb.conf
+      

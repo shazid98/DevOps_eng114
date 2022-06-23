@@ -1,0 +1,17 @@
+---
+- hosts: db
+  gather_facts: yes
+  become: true
+
+  tasks:
+  - name: Installing Mongodb
+    apt: pkg=mongodb state=present update_cache=yes
+  - name: Changing Mongo.conf file
+    copy:
+      src: ~/DevOps_eng114/mongodb.conf
+      dest: /etc/mongodb.conf
+  - name: Restarting Mongo
+    ansible.builtin.service:
+      name: mongodb
+      state: restarted
+      enabled: true

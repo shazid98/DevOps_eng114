@@ -1,0 +1,9 @@
+---
+
+- hosts: web
+  gather_facts: yes
+  become: true
+  tasks:
+  - name: Install Node
+    apt: pkg=nodejs state=present update_cache=yes
+    
