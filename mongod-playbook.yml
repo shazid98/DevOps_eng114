@@ -1,6 +1,34 @@
 ---
 
-- hosts: web
+# - hosts: db
+
+#   gather_facts: yes
+
+#   become: true
+
+#   tasks:
+#   - name: Add key for Mongodb
+#     apt: pkg=mongodb state=present
+#   - name: Cloning Git
+#     git:
+#       repo: https://github.com/shazid98/DevOps_eng114.git
+#       dest: ~/
+#       clone: yes
+#       update: yes
+
+#   - name: Replacing mongod.conf
+#     shell:
+#       cd /etc
+#       rm mongod.conf
+#       cp ~/DevOps_eng114/mongod.conf
+#       sudo systemctl restart mongod
+#       sudo systemctl enable mongod
+#     become_user: root
+
+
+
+
+- hosts: db
 
   gather_fact: yes
 
