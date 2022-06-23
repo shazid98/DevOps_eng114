@@ -14,7 +14,7 @@ sudo apt-get update
 sudo apt-get install ansible -y
 
 sudo rm -rf /etc/ansible
-sudo git clone https://github.com/shazid98/DevOps_eng114.git /etc/ansible
+sudo git clone https://github.com/shazid98/DevOps_eng114.git ~/
 export ANSIBLE_HOST_KEY_CHECKING=False
 cd /etc/ansible
 ansible-playbook nginx-playbook.yml
