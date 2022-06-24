@@ -17,6 +17,15 @@ sudo apt-get install ansible -y
 cd ~/
 git clone https://github.com/shazid98/DevOps_eng114.git 
 export ANSIBLE_HOST_KEY_CHECKING=False
+
+sudo mv DevOps_eng114/playbooks/nginx-playbook.yml
+sudo mv DevOps_eng114/playbooks/reverse-proxy-playbook.yml
+sudo mv DevOps_eng114/playbooks/node-playbook.yml
+sudo mv DevOps_eng114/playbooks/npm-playbook.yml
+sudo mv DevOps_eng114/playbooks/mongodb-playbook.yml
+sudo mv DevOps_eng114/playbooks/copy-playbook.yml
+sudo mv DevOps_eng114/playbooks/app-run-playbook.yml
+
 cd /etc/ansible
 ansible-playbook nginx-playbook.yml
 ansible-playbook reverse-proxy-playbook.yml

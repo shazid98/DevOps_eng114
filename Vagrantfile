@@ -49,6 +49,10 @@
         controller.vm.provision "file", source: "controller_provision.sh", destination: "$HOME/"
    
         controller.vm.provision "shell", inline: "sudo chmod +x controller_provision.sh"
+        
+        controller.vm.provision "file", source: "playbooks_provision.sh", destination: "$HOME/"
+   
+        controller.vm.provision "shell", inline: "sudo chmod +x playbooks_provision.sh"
 
         # controller.vm.provision "shell", inline: "sudo ./controller_provision.sh"
 
