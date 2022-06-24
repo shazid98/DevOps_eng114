@@ -50,11 +50,11 @@
    
         controller.vm.provision "shell", inline: "sudo chmod +x controller_provision.sh"
 
-        controller.vm.provision "shell", inline: "sudo ./controller_provision.sh"
+        # controller.vm.provision "shell", inline: "sudo ./controller_provision.sh"
 
           # config.hostsupdater.aliases = ["development.controller"] 
           
-         end 
+        end 
     
     end
 
