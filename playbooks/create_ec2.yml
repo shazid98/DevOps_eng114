@@ -10,7 +10,7 @@
     key_name: eng114
     region: eu-west-1
     image: ami-07b63aa1cfd3bc3a5 # https://cloud-images.ubuntu.com/locator/ec2/
-    id: "eng114-shazid-ansible-instance3"
+    id: "eng114-shazid-ansible-instance8"
     sec_group: "{{id}}-sec"
     vpc_cidr: 10.0.0.0/16
     vpc_name: "eng114-shazid-testing-app-db"
@@ -52,7 +52,7 @@
         ec2_group:
           name: "{{ sec_group }}"
           description: "Sec group for app {{ id }}"
-          # vpc_id: 12345
+          vpc_id: 12345
           region: "eu-west-1"
           aws_access_key: "{{aws_access_key}}"
           aws_secret_key: "{{aws_secret_key}}"
@@ -62,13 +62,18 @@
                 - 22
               cidr_ip: 0.0.0.0/0
               rule_desc: allow all on ssh port
+            - proto: tcp
+              ports:
+                - 80
+              cidr_ip: 0.0.0.0/0
+              rule_desc: allow nginx
         register: result_sec_group
 
       - name: Provision instance(s)
         ec2:
           aws_access_key: "{{aws_access_key}}"
           aws_secret_key: "{{aws_secret_key}}"
-          key_name: "eng114"
+          key_name: "eng114_florent"
           id: "{{ id }}"
           group_id: "{{ result_sec_group.group_id }}"
           image: "{{ image }}"
@@ -80,6 +85,6 @@
           # count_tag:
           #   Name: App
           instance_tags:
-            Name: Shazid-ansible-instance
+            Name: eng114-shazid-ansible-instance
 
       tags: ['never', 'create_ec2']

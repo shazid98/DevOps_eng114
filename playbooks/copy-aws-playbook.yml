@@ -1,0 +1,12 @@
+---
+- hosts: aws
+  gather_facts: yes
+  become: true
+
+  #copy app folder over
+  tasks:
+  - name: copy app
+    become: true
+    copy:
+      src: ~/DevOps_eng114/sre_jenkins_cicd/app
+      dest: .
