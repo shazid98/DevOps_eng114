@@ -1,3 +1,2 @@
 # Ansible
-
-!["Ansible Structure"](/images/Ansible-Structure.png)
+![](/images/Ansible-Structure.png)
