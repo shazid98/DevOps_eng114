@@ -8,9 +8,9 @@
     key_name: eng114
     region: eu-west-1
     image:  ami-07b63aa1cfd3bc3a5
-    id: "eng114-shazid-ansible-app"
-    sec_group: "sg-0a22f7877d6eac89d"
-    subnet_id: "subnet-015162d1304cf4a9e"
+    id: "eng114-shazid-ansible-db1"
+    sec_group: "sg-0e1f45019ad2fd41d"
+    subnet_id: "subnet-04b93ac4eaf69de12"
 # add the following line if ansible by default uses python 2.7
     #ansible_python_interpreter: /usr/bin/python3
   tasks:
@@ -24,7 +24,6 @@
           aws_secret_key: "{{aws_secret_key}}"
           region: "{{ region }}"
         register: result
-
 
     - name: Provisioning EC2 instances
       block:
@@ -42,8 +41,8 @@
         ec2:
           aws_access_key: "{{aws_access_key}}"
           aws_secret_key: "{{aws_secret_key}}"
-          assign_public_ip: true
-          key_name: "{{ key_name }}" #update with pem key
+          assign_public_ip: False
+          key_name: "eng114_group" #update with pem key
           id: "{{ id }}"
           vpc_subnet_id: "{{ subnet_id }}"
           group_id: "{{ sec_group }}"
@@ -53,6 +52,8 @@
           wait: true
           count: 1
           instance_tags:
-            Name: eng114-shazid-ansible-app
+            Name: eng114-shazid-ansible-db
 
-      tags: ['never', 'create_ec2']
+      tags: ['never', 'create_db']
+
+
