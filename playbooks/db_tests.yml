@@ -1,0 +1,24 @@
+---
+ - name: Test DB
+   hosts: db
+   become: true
+   gather_facts: true
+   tasks:
+   - name: Check timezone
+      assert:
+        that: "'UTC' in ansible_date_time.tz"
+    - name: Check OS
+      assert:
+        that: "'Ubuntu' in ansible_distribution"
+    - name: Check if Mongodb is present
+      package_facts:
+        manager: "auto"
+    - name: Confirm if mongodb is installed
+      assert:
+        that: "'mongodb' in ansible_facts.packages"
+    - name: Check if any ports are listening
+      shell: lsof -i -P -n | grep LISTEN
+      register: port_check
+    - name: Check if port 27017 is listening
+      assert:
+        that: "'*:27017 (LISTEN)' in port_check.stdout"
