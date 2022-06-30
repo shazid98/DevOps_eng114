@@ -2,3 +2,7 @@
 ubuntu-xenial-16.04-cloudimg-console.log
 .gitignore
 playbooks/hosts
+eng114_terraform/.terraform/
+eng114_terraform/terraform.tfstate
+eng114_terraform/terraform.tfstate.backup
+
