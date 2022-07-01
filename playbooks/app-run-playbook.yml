@@ -1,5 +1,5 @@
 ---
-- hosts: aws
+- hosts: app
   gather_facts: yes
   become: true
 
@@ -12,5 +12,5 @@
       npm i
       node seeds/seed.js
       npm start
-    #environment:
-      #DB_HOST: mongodb://192.168.33.11:27017/posts
+    environment:
+      DB_HOST: mongodb://192.168.33.11:27017/posts

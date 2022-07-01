@@ -7,3 +7,5 @@
   tasks:
   - name: Install Nginx Web server
     apt: pkg=nginx state=present
+  - name: restart nginx
+    service: name=nginx state=restarted enabled=yes
