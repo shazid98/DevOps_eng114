@@ -69,8 +69,8 @@ resource "aws_route_table_association" "public" {
 }
 
 # Security Groups
-resource "aws_security_group" "allow_nginx" {
-  name = "allow_nginx"
+resource "aws_security_group" "security_ports" {
+  name = "ports"
   description = "Allow port 80"
   vpc_id = aws_vpc.eng114_shazid_terraform.id
 
@@ -78,6 +78,12 @@ resource "aws_security_group" "allow_nginx" {
     from_port = 80
     protocol  = "tcp"
     to_port   = 80
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port = 22
+    protocol  = "tcp"
+    to_port   = 22
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -89,17 +95,17 @@ resource "aws_security_group" "allow_nginx" {
   }
 
   tags = {
-    Name = "allow_nginx"
+    Name = "ports"
   }
 }
 
 
 resource "aws_instance" "app_instance"{
 # choose your ami and instance type
-        ami = "ami-0b47105e3d7fc023e"
-        instance_type = "t2.micro"
+    ami = "ami-0b47105e3d7fc023e"
+    instance_type = "t2.micro"
     subnet_id = "${aws_subnet.eng114_shazid_terraform_public_subnet.id}"
-    vpc_security_group_ids = [aws_security_group.allow_nginx.id]
+    vpc_security_group_ids = [aws_security_group.security_ports.id]
 
 # enable a public ip
     associate_public_ip_address = true

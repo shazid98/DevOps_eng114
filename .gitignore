@@ -5,4 +5,4 @@ playbooks/hosts
 eng114_terraform/.terraform/
 eng114_terraform/terraform.tfstate
 eng114_terraform/terraform.tfstate.backup
-
+eng114_terraform/terraform.lock.hcl
