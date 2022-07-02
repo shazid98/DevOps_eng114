@@ -118,6 +118,13 @@ resource "aws_security_group" "db_security_ports" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port = 27017
+    protocol  = "tcp"
+    to_port   = 27017
+    cidr_blocks = ["${aws_instance.app_instance.private_ip}/32"]
+  }
+
   egress {
     from_port = 0
     protocol  = "-1"
