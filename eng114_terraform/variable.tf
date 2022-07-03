@@ -3,11 +3,11 @@ variable "node_app_id"{
 }
 
 variable "node_db_id"{
-    default = "ami-07db711042ce9bf55"
+    default = "ami-089426c4397d0f4e8"
 }
 
 variable "node_controller_id"{
-    default = "ami-0e8df5fc47976d293"
+    default = "ami-096ec94d552c7b54a"
 }
 
 variable "aws_key_name"{

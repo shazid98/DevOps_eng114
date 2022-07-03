@@ -161,58 +161,6 @@ resource "aws_security_group" "controller_security_ports" {
   }
 }
 
-
-
-resource "aws_instance" "controller_instance"{
-# choose your ami and instance type
-    ami = "${var.node_controller_id}"
-    instance_type = "t2.micro"
-    key_name = "${var.aws_key_name}"
-    subnet_id = "${aws_subnet.eng114_shazid_terraform_public_subnet.id}"
-    vpc_security_group_ids = [aws_security_group.controller_security_ports.id]
-
-# enable a public ip
-    associate_public_ip_address = true
-
-# name the instance
-    tags = {
-        Name = "eng114_shazid_terraform_controller"
-    }
-}
-
-resource "aws_instance" "db_instance"{
-# choose your ami and instance type
-    ami = "${var.node_db_id}"
-    instance_type = "t2.micro"
-    key_name = "${var.aws_key_name}"
-    subnet_id = "${aws_subnet.eng114_shazid_terraform_private_subnet.id}"
-    vpc_security_group_ids = [aws_security_group.db_security_ports.id]
-
-# enable a public ip
-    associate_public_ip_address = false
-
-# name the instance
-    tags = {
-        Name = "eng114_shazid_terraform_db"
-    }
-}
-resource "aws_instance" "app_instance"{
-# choose your ami and instance type
-    ami = "${var.node_app_id}"
-    instance_type = "t2.micro"
-    key_name = "${var.aws_key_name}"
-    subnet_id = "${aws_subnet.eng114_shazid_terraform_public_subnet.id}"
-    vpc_security_group_ids = [aws_security_group.app_security_ports.id]
-
-# enable a public ip
-    associate_public_ip_address = true
-
-# name the instance
-    tags = {
-        Name = "eng114_shazid_terraform_app"
-    }
-}
-
 # Creating load balancer for the app
 resource "aws_elb" "app_lb" {
   name = "eng114-shazid-lb"
@@ -239,7 +187,7 @@ resource "aws_elb" "app_lb" {
 
 # Creating launch template
   resource "aws_launch_configuration" "app" {
-  name_prefix = "eng114-terraform-asg-app-"
+  name_prefix = "eng114-shazid-terraform-asg-app-"
   image_id = "${var.node_app_id}" 
   instance_type = "t2.micro"
   key_name = "${var.aws_key_name}"
@@ -254,7 +202,7 @@ resource "aws_elb" "app_lb" {
 
 # Creating an autoscaling group
 resource "aws_autoscaling_group" "app" {
-  name = "eng114-shazid-terraform-asg"
+  name = "eng114-shazid-terraform-asg-app"
   min_size             = 2
   desired_capacity     = 2
   max_size             = 3
