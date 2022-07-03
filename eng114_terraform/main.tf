@@ -213,7 +213,7 @@ resource "aws_instance" "app_instance"{
     }
 }
 
-# Creating load balancer for app
+# Creating load balancer for the app
 resource "aws_elb" "app_lb" {
   name = "eng114-shazid-lb"
   security_groups = ["${aws_security_group.app_security_ports.id}"]
@@ -237,7 +237,7 @@ resource "aws_elb" "app_lb" {
   }
 
 
-#Creating launch template
+# Creating launch template
   resource "aws_launch_configuration" "app" {
   name_prefix = "eng114-terraform-asg-app-"
   image_id = "${var.node_app_id}" 
@@ -252,7 +252,7 @@ resource "aws_elb" "app_lb" {
 }
 
 
-#Creating auto scaling group
+# Creating an autoscaling group
 resource "aws_autoscaling_group" "app" {
   name = "eng114-shazid-terraform-asg"
   min_size             = 2
@@ -276,7 +276,7 @@ resource "aws_autoscaling_group" "app" {
   }
   tag {
     key                 = "Name"
-    value               = "eng114-shazid-terraform-asg"
+    value               = "eng114-shazid-terraform-app"
     propagate_at_launch = true
   }
   
