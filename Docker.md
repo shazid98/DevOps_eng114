@@ -35,5 +35,5 @@ One of the great things about open source is that you have choice in what techno
 - Provides multi cloud services
 
 
-## Why Docker? VM vs Docker
+## VM vs Docker
 ![](/images/vm_vs_docker.png)
