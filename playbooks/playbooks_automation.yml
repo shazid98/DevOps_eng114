@@ -1,0 +1,9 @@
+---
+- name: automation
+  hosts: localhost
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: run scripts
+      ansible.builtin.command: ./~/playbooks_provision.sh
+      when:  

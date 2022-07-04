@@ -1,6 +1,6 @@
 ---
 
-- hosts: aws
+- hosts: app
   gather_facts: yes
   become: true
 
@@ -9,4 +9,3 @@
     apt: pkg=nginx state=present
   - name: restart nginx
     service: name=nginx state=restarted enabled=yes
-  tags: ['never', 'aws-nginx-playbook']

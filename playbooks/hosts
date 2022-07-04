@@ -3,3 +3,4 @@ ec2-instance ansible_host=54.154.244.83 ansible_user=ubuntu ansible_ssh_private_
 
 [db]
 ec2-instance-2 ansible_host=10.0.21.98 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/eng114_group.pem
+

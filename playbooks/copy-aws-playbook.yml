@@ -1,5 +1,5 @@
 ---
-- hosts: aws
+- hosts: app
   gather_facts: yes
   become: true
 
