@@ -6,7 +6,7 @@ LABEL MAINTAINER=shazid.tipu@gmail.com
 
 # copy the app from localhost to the container
 WORKDIR /app
-COPY /app .
+COPY . .
 RUN npm install --production
 
 # Expose the required port

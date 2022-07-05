@@ -73,6 +73,9 @@ if port is already allocated you can put another port variable:80 nginx
 
 `docker run -d -p 4000:4000 docs/docker.github.io`
 
+`docker cp 0cbb952985fb:/app ~/` to copy file from container
+
+
 How to push to docker:
 
 `docker ps`
