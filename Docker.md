@@ -83,3 +83,33 @@ How to push to docker:
 
 More info:
 [https://docs.docker.com/engine/reference/commandline/docker/](https://docs.docker.com/engine/reference/commandline/docker/)
+
+
+# Dockerfile:
+
+```Dockerfile to run app:
+# choose the base image
+FROM node:16.9.0
+ENV NODE_ENV=production
+# label add info about the creator of this image - optional
+LABEL MAINTAINER=shazid.tipu@gmail.com
+
+# copy the app from localhost to the container
+WORKDIR /app
+COPY /app .
+RUN npm install --production
+
+# Expose the required port
+EXPOSE 3000
+
+# Run the command to launch the server/container - create container
+CMD ["node", "app.js"]
+# docker run -dp 3000:3000 node shazid98/eng114-shazid-app 
+
+```
+
+## How to run docker image:
+`docker run -dp 3000:3000 shazid98/eng114-shazid-app:v3`
+
+## Push to Docker Hub:
+`docker push shazid98/eng114-shazid-app:v3`
