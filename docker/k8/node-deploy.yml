@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node
+spec:
+  selector:
+    matchLabels:
+      app: node
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      containers:
+        - name: node
+          image: shazid98/eng114-shazid-app:v4
+          env:
+          - name: DB_HOST
+            value: mongodb://10.101.198.53:27017/posts
+
+          ports:
+            - containerPort: 3000
+
+          imagePullPolicy: Always
