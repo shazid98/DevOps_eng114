@@ -3,9 +3,6 @@ version: '3.7'
 services:
   mongodb_container:
     image: shazid98/eng114-shazid-app:db1
-    # environment:
-    #   MONGO_INITDB_ROOT_USERNAME: root
-    #   MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
       - 27017:27017
     volumes:
@@ -14,16 +11,10 @@ services:
     image: shazid98/eng114-shazid-app:v4
     ports:
       - 3000:3000
-    # volumes:
-    #   - node_data_container:/usr/src/app
     depends_on:
       - mongodb_container
     environment:
       - DB_HOST=mongodb://mongodb_container:27017/posts
-    # command:
-    #   - npm
-    #   - run
-    #   - start
 
 volumes:
   mongodb_data_container: 
